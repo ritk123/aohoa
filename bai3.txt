@@ -1,0 +1,18 @@
+from ._anvil_designer import Form1Template
+from anvil import *
+
+class Form1(Form1Template):
+    def __init__(self, **properties):
+        self.init_components(**properties)
+     
+        self.button_1.set_event_handler('click', self.button_1_click)
+    def button_1_click(self, **event_args):
+        
+        input_text = self.text_box_1.text
+        number_list = list(map(int, input_text.split()))
+        
+        
+        sorted_numbers = sorted(number_list)
+        
+        
+        self.text_box_2.text = "Dãy số sau khi sắp xếp: " + " ".join(map(str, sorted_numbers))
